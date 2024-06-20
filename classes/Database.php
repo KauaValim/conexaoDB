@@ -3,16 +3,16 @@
         private $host = "localhost";
         private $dbname = "bdcrud";
         private $username = "root";
-        private $password = " ";
+        private $password = "";
 
-        public $comm;
+        public $conn;
         public function getConnection() {
-            $this-$comm = null;
+            $this->conn = null;
             try {
-                $this->comm = new PDO("mysql:host = ".$this->host.";dbname = ".$this->dbname,$this->username,$this->password);
+                $this->conn = new PDO("mysql:host=".$this->host.";dbname=".$this->dbname,$this->username,$this->password);
             } catch(PDOException $exception) {
                 echo "Erro de conexão: ".$exception->getMessage();
             }
-            return $this->comm;
+            return $this->conn;
         }
     }
