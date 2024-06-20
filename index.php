@@ -4,7 +4,7 @@
     include_once './classes/Usuario.php';
     $usuario = new Usuario($db);
     if ($_SERVER["REQUEST_METHOD"]==="POST") {
-        if (isset($_POST["login"])) {
+        if (isset($_POST["email"]) && isset($_POST["senha"])) {
             $email = $_POST["email"];
             $senha = $_POST["senha"];
             if($dados_Usuario = $usuario->login($email, $senha)) {
@@ -30,8 +30,8 @@
     <div class="container">
         <h1>Acesso</h1>
         <form method="POST">
-            <input type="email" placeholder="E-mail" required />
-            <input type="password" placeholder="Senha" required />
+            <input type="email" name="email" placeholder="E-mail" required />
+            <input type="password" name="senha" placeholder="Senha" required />
             <input type="submit" value="Entrar" />
         </form>
         <!-- <a href="./portal.php">portal</a> -->
