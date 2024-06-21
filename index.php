@@ -12,7 +12,7 @@
                 header("Location: portal.php");
                 exit();
         } else {
-            $mensagem_erro = "Credenciais inválidas!";
+            $mensagem_erro = "Credenciais inválidas, tente novamente.";
         }
     }
 }
@@ -24,20 +24,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autenticação</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="css-selector">
+    <main>
     <div class="container">
-        <h1>Acesso</h1>
+        <h1>Login</h1>
         <form method="POST">
-            <input type="email" name="email" placeholder="E-mail" required />
-            <input type="password" name="senha" placeholder="Senha" required />
-            <input type="submit" value="Entrar" />
+            <input class="box" type="email" name="email" placeholder="E-mail" required />
+            <input class="box" type="password" name="senha" placeholder="Senha" required />
+            <input class="btn" type="submit" value="Entrar" />
         </form>
         <!-- <a href="./portal.php">portal</a> -->
         <p>Não tem uma conta? <a href="cadastro.php">Registre-se</a></p>
     </div>
-    
+    <div class="mensagem">
+        <?php
+            if (isset($mensagem_erro)) {
+                echo "<p>".$mensagem_erro."</p>";
+            }
+        ?>
+    </div>
+    </main>
 </body>
 
 </html>
