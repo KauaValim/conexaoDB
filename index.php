@@ -8,8 +8,8 @@
             $email = $_POST["email"];
             $senha = $_POST["senha"];
             if($dados_Usuario = $usuario->login($email, $senha)) {
-                $_SESSION["usuario_id"]= $dados_Usuario["id"];
-                header("location:portal.php");
+                $_SESSION["usuario_id"] = $dados_Usuario["id"];
+                header("Location: portal.php");
                 exit();
         } else {
             $mensagem_erro = "Credenciais inválidas!";
