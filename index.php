@@ -38,6 +38,7 @@
             <button class="btn" type="submit" value="Entrar"><i class="fa-solid fa-right-to-bracket"></i>  Entrar</button>
         </form>
         <!-- <a href="./portal.php">portal</a> -->
+        <p>Esqueceu sua senha? <a href="solicitar_recuperacao.php">Redefinir senha</a></p>
         <p>Não tem uma conta? <a href="cadastro.php">Registre-se</a></p>
     </div>
     <div class="mensagem">
