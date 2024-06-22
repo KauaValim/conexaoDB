@@ -31,6 +31,9 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Usuário</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="css-selector">
@@ -50,7 +53,8 @@ if (isset($_GET['id'])) {
                 </div>
                 <input class="box" type="text" name="fone" placeholder="fone" value="<?php echo $row['fone']; ?>" required>
                 <input class="box" type="email" name="email" placeholder="email" value="<?php echo $row['email']; ?>" required>
-                <input class="btn" type="submit" value="Atualizar">
+                <button class="btn" type="submit" value="Atualizar"><i class="fa-regular fa-pen-to-square"></i>
+                    Atualizar</button>
             </form>
         </div>
     </main>
