@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="css-selector">
@@ -53,8 +54,8 @@
             <?php echo saudacao() . ", " . $nome_usuario; ?>!
         </h1>
         <div class="menu">
-            <a class="linkPortal" href="registrar.php">Adicionar Usuário</a>
-            <a class="linkPortal" href="logout.php">Logout</a>
+            <a class="linkPortal" href="registrar.php"><i class="fa-solid fa-user-plus"></i> Adicionar Usuário</a>
+            <a class="linkPortal" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
         </div>
         <table>
             <tr>
@@ -73,8 +74,8 @@
                     <td><?php echo $row['fone']; ?></td>
                     <td><?php echo $row['email']; ?></td>
                     <td class='actions'>
-                        <a class="linkPortal" href="editar.php?id=<?php echo $row['id']; ?>">Editar</a>
-                        <a class="linkPortal" href="deletar.php?id=<?php echo $row['id']; ?>">Deletar</a>
+                        <a class="linkPortal" href="editar.php?id=<?php echo $row['id']; ?>"><i class="fa-regular fa-pen-to-square"></i> Editar</a>
+                        <a class="linkPortal" href="deletar.php?id=<?php echo $row['id']; ?>"><i class="fa-regular fa-trash-can"></i> Deletar</a>
                     </td>
                 </tr>
             <?php endwhile; ?>
