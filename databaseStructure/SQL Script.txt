@@ -10,3 +10,12 @@ CREATE TABLE usuarios(id INT AUTO_INCREMENT PRIMARY KEY,
     senha VARCHAR(255) NOT NULL);
 
 ALTER TABLE usuarios ADD COLUMN codigo_verificacao VARCHAR(10) DEFAULT NULL;
+
+CREATE TABLE noticias (
+    idnot INT AUTO_INCREMENT PRIMARY KEY,
+    idusu INT,
+    data DATE,
+    titulo VARCHAR(255) NOT NULL,
+    noticia TEXT NOT NULL,
+    FOREIGN KEY (idusu) REFERENCES usuarios(id)
+);
