@@ -48,6 +48,7 @@
             </h1>
             <div class="menu">
                 <a class="linkPortal" href="gerencia.php"><i class="fa-solid fa-user-plus"></i> Gerenciar Usuários</a>
+                <a class="linkPortal" href="gerenciarNoticias.php"><i class="fa-solid fa-user-plus"></i> Gerenciar Notícias</a>
                 <a class="linkPortal" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
             </div>
         </div>
@@ -59,14 +60,12 @@
                 <?php
                 $_POST["data"] = date("Y-m-d")
                 ?>
-                <textarea class="box" id="summernote" name="artigo" rows="5" placeholder="notícia" required></textarea>
+                <textarea class="box" id="summernote" name="artigo" rows="5" placeholder="Notícia" required></textarea>
                 <input class="btn" type="submit" value="Postar">
             </form>
         </div>
     </main>
-    
-</body>
-<?php
+    <?php
         include_once './config/config.php';
         include_once './classes/Noticias.php';
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -79,5 +78,8 @@
             exit();
         }
     ?>
+    
+</body>
+    
 
 </html>

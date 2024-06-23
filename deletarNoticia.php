@@ -5,12 +5,12 @@
         exit();
     }
     include_once './config/Config.php';
-    include_once './classes/Usuario.php';
+    include_once './classes/Noticias.php';
 
-    $usuario = new Usuario($db);
+    $noticia = new Noticias($db);
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
-        $usuario->deletar($id);
-        header('Location: gerencia.php');
+        $noticia->deletar($id);
+        header('Location: gerenciarNoticias.php');
         exit();
     }

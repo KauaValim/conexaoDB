@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $email = $_POST["email"];
             $senha = $_POST["senha"];
             $usuario->registrar($nome, $sexo, $fone, $email, $senha);
-            header("Location: portal.php");
+            header("Location: gerencia.php");
             exit();
         } catch (PDOException $exception) {
             $mensagem_erro = "Já existe um cadastro com este e-mail, tente novamente.";
