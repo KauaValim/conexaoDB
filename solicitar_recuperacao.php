@@ -32,7 +32,7 @@
         <button class="btn" type="submit" value="Enviar"><i class="fa-solid fa-right-to-bracket"></i>  Enviar</button>
     </form>
     <br>
-    <a href="index.php">Voltar</a>
+    <a href="login.php">Voltar</a>
     </div>
     <div class="mensagemInfo">
         <?php 

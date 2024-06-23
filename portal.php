@@ -17,19 +17,12 @@
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['usuario_id'])) {
-        header('Location: index.php');
+        header('Location: login.php');
         exit();
     }
     $usuario = new Usuario($db);
-
-    // Processar exclusão de usuário
-    if (isset($_GET['deletar'])) {
-        $id = $_GET['deletar'];
-        $usuario->deletar($id);
-        header('Location: portal.php');
-        exit();
-    }
     // Obter dados do usuário logado
+    $id = $_SESSION['usuario_id'];
     $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
     $nome_usuario = $dados_usuario['nome'];
     // Obter dados dos usuários
@@ -49,39 +42,42 @@
     }
     ?>
     <main class='mainPortal'>
-    <div class="containerPortal">
-        <h1>
-            <?php echo saudacao() . ", " . $nome_usuario; ?>!
-        </h1>
-        <div class="menu">
-            <a class="linkPortal" href="registrar.php"><i class="fa-solid fa-user-plus"></i> Adicionar Usuário</a>
-            <a class="linkPortal" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
+        <div class="containerPortal">
+            <h1>
+                <?php echo saudacao() . ", " . $nome_usuario; ?>!
+            </h1>
+            <div class="menu">
+                <a class="linkPortal" href="gerencia.php"><i class="fa-solid fa-user-plus"></i> Gerenciar Usuários</a>
+                <a class="linkPortal" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
+            </div>
         </div>
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Sexo</th>
-                <th>Fone</th>
-                <th>Email</th>
-                <th>Ações</th>
-            </tr>
-            <?php while ($row = $dados->fetch(PDO::FETCH_ASSOC)) : ?>
-                <tr>
-                    <td><?php echo $row['id']; ?></td>
-                    <td><?php echo $row['nome']; ?></td>
-                    <td><?php echo ($row['sexo'] === 'M') ? 'Masculino' : 'Feminino'; ?></td>
-                    <td><?php echo $row['fone']; ?></td>
-                    <td><?php echo $row['email']; ?></td>
-                    <td class='actions'>
-                        <a class="linkPortal" href="editar.php?id=<?php echo $row['id']; ?>"><i class="fa-regular fa-pen-to-square"></i> Editar</a>
-                        <a class="linkPortal" href="deletar.php?id=<?php echo $row['id']; ?>"><i class="fa-regular fa-trash-can"></i> Deletar</a>
-                    </td>
-                </tr>
-            <?php endwhile; ?>
-        </table>
-    </div>
+        <div class="containerPortal">
+            <h1>Postar nova notícia</h1>
+            <form method="POST" class="editor">
+                <input class="box" type="text" name="titulo" placeholder="Título" required />
+                <input type="hidden" name="data">
+                <?php
+                $_POST["data"] = date("Y-m-d")
+                ?>
+                <textarea class="box" id="summernote" name="artigo" rows="5" placeholder="notícia" required></textarea>
+                <input class="btn" type="submit" value="Postar">
+            </form>
+        </div>
     </main>
+    
 </body>
+<?php
+        include_once './config/config.php';
+        include_once './classes/Noticias.php';
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            $noticia = new Noticias($db);
+            $data = $_POST["data"];
+            $titulo = $_POST["titulo"];
+            $artigo = $_POST["artigo"];
+            $noticia->registrar($id, $data, $titulo, $artigo);
+            header("location:portal.php");
+            exit();
+        }
+    ?>
 
 </html>

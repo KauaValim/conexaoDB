@@ -21,7 +21,6 @@ body main .container p {
 .css-selector {  
     background-image: url('./static/hhholographic.png');
     background-size: 200% 200%;
-    background-blend-mode: hard-light;
 
     -webkit-animation: AnimationName 50s linear infinite;
     -moz-animation: AnimationName 50s linear infinite;
@@ -123,7 +122,9 @@ body .container form .btn:hover {
     background-color: #ddd;
 }
 
+
 /* Tela Cadastro */
+
 
 body .container form .seletor {
     align-self: self-start;
@@ -134,7 +135,9 @@ body .container form .seletor .slt {
     border: 0px solid #000;
 }
 
+
 /* Tela Portal */
+
 
 body .mainPortal {
     display:flex;
@@ -206,4 +209,101 @@ body .containerPortal table tr .actions a {
     color: #f80;
     text-decoration: none;
     font-weight: 800;
+}
+
+body .mainPortal .containerPortal .editor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body .mainPortal .containerPortal .box {
+    width: 20rem;
+    border-radius: 5px;
+    border: 0px solid #000;
+    padding: 2px 5px;
+    vertical-align: middle;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body .mainPortal .containerPortal .dateBox {
+    width: 6rem;
+    border-radius: 5px;
+    border: 0px solid #000;
+    padding: 2px 5px;
+    vertical-align: middle;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body .mainPortal .containerPortal .btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 0px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+}
+body .mainPortal .containerPortal .btn:hover {
+    background-color: #ddd;
+}
+
+
+/* Tela Index */
+
+
+body .mainIndex {
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+body .mainIndex .header {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    background: rgba(223, 223, 223, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 1vh 2vw;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+}
+body .mainIndex .header h1 {
+    margin: 16px;
+}
+
+body .mainIndex .header a {
+    margin: 12px;
+}
+
+body .containerIndex  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(223, 223, 223, 0.35);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    margin: 20px;
+    padding: 1vh 2vw;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+}
+
+body .containerIndex {
+    display:block;
+    word-wrap: break-word;
+}
+
+body .containerIndex .noticiaHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
 }
