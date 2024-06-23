@@ -36,11 +36,18 @@
             return $stmt;
         }
 
-        public function lerPorId($idnot){
+        public function lerPorIdNot($idnot){
             $query = "SELECT * FROM ".$this->table_name." WHERE idnot=?";
             $stmt = $this->conn->prepare($query);
             $stmt->execute([$idnot]);
             return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
+        public function lerPorId($idusu){
+            $query = "SELECT * FROM ".$this->table_name." WHERE idusu=?";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute([$idusu]);
+            return $stmt;
         }
         
     }

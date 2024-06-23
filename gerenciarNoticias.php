@@ -11,12 +11,28 @@
 
 <body class="css-selector">
     <?php
+    session_start();
     include_once './config/config.php';
     include_once './classes/Noticias.php';
+    include_once './classes/Usuario.php';
+
+    if (!isset($_SESSION['usuario_id'])) {
+        header('Location: login.php');
+        exit();
+    }
+
     $noticias = new Noticias($db);
 
+    // Processar exclusão de noticias
+    if (isset($_GET['deletar'])) {
+        $id = $_GET['deletar'];
+        $noticias->deletar($id);
+        header('Location: gerenciarNoticias.php');
+        exit();
+    }
+
     // Obter noticias
-    $lista_noticias = $noticias->ler();
+    $lista_noticias = $noticias->lerPorId($_SESSION['usuario_id']);
 
     function formatData($data) {
         $textArray = explode("-",$data,3);
@@ -27,8 +43,8 @@
     ?>
     <main class='mainIndex'>
         <div class="header">
-            <h1>Notícias</h1>
-            <a class="linkPortal" href="login.php"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
+            <h1>Minhas notícias</h1>
+            <a class="linkPortal" href="portal.php"><i class="fa-solid fa-user-plus"></i> Retornar ao portal</a>
         </div>
         <?php while ($row = $lista_noticias->fetch(PDO::FETCH_ASSOC)) : ?>
             <div class="containerIndex">
@@ -37,6 +53,10 @@
                     <p><?php echo formatData($row["data"]); ?></p>
                 </div>
                 <p><?php echo $row["noticia"]; ?></p>
+
+                <a class="linkPortal" href="editarNoticia.php?id=<?php echo $row['idnot']; ?>"><i 
+                class="fa-solid fa-power-off"></i> Editar</a>
+                <a class="linkPortal" href="deletarNoticia.php?id=<?php echo $row['idnot']; ?>"><i class="fa-solid fa-power-off"></i> Excluir</a>
             </div>
         <?php endwhile; ?>
 

@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fone = $_POST["fone"];
     $email = $_POST["email"];
     $usuario->atualizar($id, $nome, $sexo, $fone, $email);
-    header("Location: portal.php");
+    header("Location: gerencia.php");
     exit();
 }
 if (isset($_GET['id'])) {
