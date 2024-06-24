@@ -53,10 +53,13 @@
                     <p><?php echo formatData($row["data"]); ?></p>
                 </div>
                 <p><?php echo $row["noticia"]; ?></p>
+                <br><br>
 
                 <a class="linkPortal" href="editarNoticia.php?id=<?php echo $row['idnot']; ?>"><i 
                 class="fa-solid fa-power-off"></i> Editar</a>
                 <a class="linkPortal" href="deletarNoticia.php?id=<?php echo $row['idnot']; ?>"><i class="fa-solid fa-power-off"></i> Excluir</a>
+                <br>
+                <br>
             </div>
         <?php endwhile; ?>
 
