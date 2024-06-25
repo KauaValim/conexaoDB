@@ -48,7 +48,7 @@
             </h1>
             <div class="menu">
                 <a class="linkPortal" href="gerencia.php"><i class="fa-solid fa-user-plus"></i> Gerenciar Usuários</a>
-                <a class="linkPortal" href="gerenciarNoticias.php"><i class="fa-solid fa-user-plus"></i> Gerenciar Notícias</a>
+                <a class="linkPortal" href="gerenciarNoticias.php"><i class="fa-solid fa-newspaper"></i> Gerenciar Notícias</a>
                 <a class="linkPortal" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
             </div>
         </div>

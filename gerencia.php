@@ -55,7 +55,7 @@
         </h1>
         <div class="menu">
             <a class="linkGerencia" href="registrar.php"><i class="fa-solid fa-user-plus"></i> Adicionar Usuário</a>
-            <a class="linkGerencia" href="portal.php"><i class="fa-solid fa-user-plus"></i> Retornar ao portal</a>
+            <a class="linkGerencia" href="portal.php"><i class="fa-solid fa-arrow-left"></i> Retornar ao portal</a>
             <a class="linkGerencia" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
         </div>
         <table>
