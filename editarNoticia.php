@@ -53,7 +53,7 @@ if (isset($_GET['id'])) {
             $titulo = $_POST["titulo"];
             $artigo = $_POST["artigo"];
             $noticia->atualizar($idnot, $idusu, $data, $titulo, $artigo);
-            header("Location: gerenciarNoticias.php");
+            header("Location: portal.php");
             exit();
         }
     ?>

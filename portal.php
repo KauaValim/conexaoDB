@@ -14,6 +14,25 @@
     session_start();
     include_once './config/config.php';
     include_once './classes/Usuario.php';
+    include_once './classes/Noticias.php';
+    $noticias = new Noticias($db);
+
+    // Processar exclusão de noticias
+    if (isset($_GET['deletar'])) {
+        $id = $_GET['deletar'];
+        $noticias->deletar($id);
+        header('Location: portal.php');
+        exit();
+    }
+
+    // Obter noticias
+    $lista_noticias = $noticias->lerPorId($_SESSION['usuario_id']);
+
+    function formatData($data) {
+        $textArray = explode("-",$data,3);
+        $texto = $textArray[2]."/".$textArray[1]."/".$textArray[0];
+        return $texto;
+    }
 
     // Verificar se o usuário está logado
     if (!isset($_SESSION['usuario_id'])) {
@@ -48,7 +67,6 @@
             </h1>
             <div class="menu">
                 <a class="linkPortal" href="gerencia.php"><i class="fa-solid fa-user-plus"></i> Gerenciar Usuários</a>
-                <a class="linkPortal" href="gerenciarNoticias.php"><i class="fa-solid fa-newspaper"></i> Gerenciar Notícias</a>
                 <a class="linkPortal" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
             </div>
         </div>
@@ -64,6 +82,21 @@
                 <input class="btn" type="submit" value="Postar">
             </form>
         </div>
+        <?php while ($row = $lista_noticias->fetch(PDO::FETCH_ASSOC)) : ?>
+            <div class="containerIndex">
+                <div class="noticiaHeader">
+                    <p><?php echo $row["titulo"]; ?></p>
+                    <p><?php echo formatData($row["data"]); ?></p>
+                </div>
+                <p><?php echo $row["noticia"]; ?></p>
+                <br><br>
+
+                <a class="linkPortal" href="editarNoticia.php?id=<?php echo $row['idnot']; ?>"><i class="fa-regular fa-pen-to-square"></i> Editar</a>
+                <a class="linkPortal" href="deletarNoticia.php?id=<?php echo $row['idnot']; ?>"><i class="fa-solid fa-trash-can"></i> Excluir</a>
+                <br>
+                <br>
+            </div>
+        <?php endwhile; ?>
     </main>
     <?php
         include_once './config/config.php';

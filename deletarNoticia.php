@@ -11,6 +11,6 @@
     if (isset($_GET['id'])) {
         $id = $_GET['id'];
         $noticia->deletar($id);
-        header('Location: gerenciarNoticias.php');
+        header('Location: portal.php');
         exit();
     }
