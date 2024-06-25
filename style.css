@@ -32,26 +32,30 @@ body main .container p {
     animation: AnimationName 10s linear infinite;
 }
 
+.css-selector:not(:hover) {
+    animation-play-state: paused;
+}
+
 @-webkit-keyframes AnimationName {
-    0%{background-position:72.55% 50%}
-    0%{backdrop-filter: hue-rotate(360deg);}
-    50%{backdrop-filter: hue-rotate(330deg);}
-    100%{background-position:50% 50%}
-    100%{backdrop-filter:  hue-rotate(360deg);}
+    0%{background-position:50% 50%}
+    0%{backdrop-filter: hue-rotate(410deg);}
+    50%{backdrop-filter: hue-rotate(200deg);}
+    100%{background-position:27,45% 50%}
+    100%{backdrop-filter:  hue-rotate(410deg);}
 }
 @-moz-keyframes AnimationName {
-    0%{background-position:72.55% 50%}
-    0%{backdrop-filter: hue-rotate(360deg);}
-    50%{backdrop-filter: hue-rotate(330deg);}
-    100%{background-position:50% 50%}
-    100%{backdrop-filter:  hue-rotate(360deg);}
+    0%{background-position:50% 50%}
+    0%{backdrop-filter: hue-rotate(410deg);}
+    50%{backdrop-filter: hue-rotate(200deg);}
+    100%{background-position:27,45% 50%}
+    100%{backdrop-filter:  hue-rotate(410deg);}
 }
 @keyframes AnimationName {
-    0%{background-position:72.55% 50%}
-    0%{backdrop-filter: hue-rotate(360deg);}
-    50%{backdrop-filter: hue-rotate(330deg);}
-    100%{background-position:50% 50%}
-    100%{backdrop-filter:  hue-rotate(360deg);}
+    0%{background-position:50% 50%}
+    0%{backdrop-filter: hue-rotate(410deg);}
+    50%{backdrop-filter: hue-rotate(200deg);}
+    100%{background-position:27,45% 50%}
+    100%{backdrop-filter:  hue-rotate(410deg);}
 }
 
 body .container {
@@ -64,7 +68,6 @@ body .container {
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
-    /* margin: 32vh 30vw 30vh 30vw; */
     padding:20px;
     min-width: 384px;
     font-family: 'DM Sans', sans-serif;
