@@ -10,6 +10,10 @@ body {
     align-items: center;
 }
 
+h1 {
+    margin-top: 0;
+}
+
 body main {
     display:flex;
     flex-direction: column;
@@ -27,9 +31,9 @@ body main .container p {
     background-image: url('./static/mmmotifx.png');
     background-size: 200% 200%;
 
-    -webkit-animation: AnimationName 10s linear infinite;
-    -moz-animation: AnimationName 10s linear infinite;
-    animation: AnimationName 10s linear infinite;
+    -webkit-animation: AnimationName 50s linear infinite;
+    -moz-animation: AnimationName 50s linear infinite;
+    animation: AnimationName 50s linear infinite;
 }
 
 .css-selector:not(:hover) {
@@ -416,7 +420,7 @@ body .containerIndex  {
     margin: 20px;
     padding: 1vh 2vw;
     font-family: 'DM Sans', sans-serif;
-    width: 100%;
+    min-width: 700px;
 }
 
 body .containerIndex {
