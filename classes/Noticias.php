@@ -36,11 +36,11 @@
             if ($search && $order_by === "") {
             $conditions[] = "(titulo LIKE :search OR noticia LIKE :search)";
             $params[':search'] = '%' . $search . '%';
-            } elseif ($search && $order_by === 'nome'){
-            $query .= " WHERE (titulo LIKE :search OR noticia LIKE :search) ORDER BY nome";
+            } elseif ($search && $order_by === 'titulo'){
+            $query .= " WHERE (titulo LIKE :search OR noticia LIKE :search) ORDER BY titulo";
             $params[':search'] = '%' . $search . '%';
-            } elseif ($order_by === 'nome') {
-            $query .= " ORDER BY nome";
+            } elseif ($order_by === 'titulo') {
+            $query .= " ORDER BY titulo";
             }
             if (count($conditions) > 0) {
             $query .= " WHERE " . implode(' AND ', $conditions);
@@ -57,10 +57,21 @@
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
 
-        public function lerPorId($idusu){
-            $query = "SELECT * FROM ".$this->table_name." WHERE idusu=?";
+        public function lerPorId($idusu, $search = '', $order_by = '') {
+            $query = "SELECT * FROM noticias WHERE idusu=".$idusu;
+            $conditions = [];
+            $params = [];
+            if ($search && $order_by === "") {
+            $query .= " AND (titulo LIKE :search OR noticia LIKE :search)";
+            $params[':search'] = '%' . $search . '%';
+            } elseif ($search && $order_by === 'titulo'){
+            $query .= " AND (titulo LIKE :search OR noticia LIKE :search) ORDER BY titulo";
+            $params[':search'] = '%' . $search . '%';
+            } elseif ($order_by === 'titulo') {
+            $query .= " ORDER BY titulo";
+            }
             $stmt = $this->conn->prepare($query);
-            $stmt->execute([$idusu]);
+            $stmt->execute($params);
             return $stmt;
         }
         
