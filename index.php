@@ -30,6 +30,9 @@
             <h1>Notícias</h1>
             <a class="linkPortal" href="login.php"><i class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
         </div>
+        <div class="filtro">
+            <?php require './filtroNoticias.php' ?>
+        </div>
         <?php while ($row = $lista_noticias->fetch(PDO::FETCH_ASSOC)) : ?>
             <div class="containerIndex">
                 <div class="noticiaHeader">
