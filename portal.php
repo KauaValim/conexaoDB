@@ -28,9 +28,10 @@
     // Obter noticias
     $lista_noticias = $noticias->lerPorId($_SESSION['usuario_id']);
 
-    function formatData($data) {
-        $textArray = explode("-",$data,3);
-        $texto = $textArray[2]."/".$textArray[1]."/".$textArray[0];
+    function formatData($data)
+    {
+        $textArray = explode("-", $data, 3);
+        $texto = $textArray[2] . "/" . $textArray[1] . "/" . $textArray[0];
         return $texto;
     }
 
@@ -82,6 +83,9 @@
                 <input class="btn" type="submit" value="Postar">
             </form>
         </div>
+        <div class="filtro">
+            <?php require './filtroNoticiasLogado.php' ?>
+        </div>
         <?php while ($row = $lista_noticias->fetch(PDO::FETCH_ASSOC)) : ?>
             <div class="containerIndex">
                 <div class="noticiaHeader">
@@ -99,20 +103,22 @@
         <?php endwhile; ?>
     </main>
     <?php
-        include_once './config/config.php';
-        include_once './classes/Noticias.php';
+    include_once './config/config.php';
+    include_once './classes/Noticias.php';
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            $noticia = new Noticias($db);
-            $data = $_POST["data"];
-            $titulo = $_POST["titulo"];
-            $artigo = $_POST["artigo"];
-            $noticia->registrar($id, $data, $titulo, $artigo);
-            header("location:portal.php");
-            exit();
+            if (isset($_POST["titulo"]) && isset($_POST["artigo"])) {
+                $noticia = new Noticias($db);
+                $data = $_POST["data"];
+                $titulo = $_POST["titulo"];
+                $artigo = $_POST["artigo"];
+                $noticia->registrar($id, $data, $titulo, $artigo);
+                header("location:portal.php");
+                exit();
+            }
         }
     ?>
-    
+
 </body>
-    
+
 
 </html>

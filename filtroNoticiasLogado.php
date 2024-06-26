@@ -7,7 +7,7 @@ $noticias = new Noticias($db);
 $search = isset($_POST['search']) ? $_POST['search'] : '';
 $order_by = isset($_POST['order_by']) ? $_POST['order_by'] : '';
 // Obter dados dos usuários com filtros
-$lista_noticias = $noticias->ler($search, $order_by);
+$lista_noticias = $noticias->lerPorId($_SESSION['usuario_id'], $search, $order_by);
 ?>
 
 
