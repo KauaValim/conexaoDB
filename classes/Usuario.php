@@ -42,10 +42,29 @@
             return $stmt;
         }
 
-        public function ler(){
-            $query = "SELECT * FROM ".$this->table_name;
+        public function ler($search = '', $order_by = '') {
+            $query = "SELECT * FROM usuarios";
+            $conditions = [];
+            $params = [];
+            if ($search && $order_by === "") {
+            $conditions[] = "(nome LIKE :search OR email LIKE :search)";
+            $params[':search'] = '%' . $search . '%';
+            } elseif ($search && $order_by === 'nome'){
+            $query .= " WHERE (nome LIKE :search OR email LIKE :search) ORDER BY nome";
+            $params[':search'] = '%' . $search . '%';
+            } elseif ($search && $order_by === 'sexo'){
+            $query .= " WHERE (nome LIKE :search OR email LIKE :search) ORDER BY sexo";
+            $params[':search'] = '%' . $search . '%';
+            } elseif ($order_by === 'nome') {
+            $query .= " ORDER BY nome";
+            } elseif ($order_by === 'sexo') {
+            $query .= " ORDER BY sexo";
+            }
+            if (count($conditions) > 0) {
+            $query .= " WHERE " . implode(' AND ', $conditions);
+            }
             $stmt = $this->conn->prepare($query);
-            $stmt->execute();
+            $stmt->execute($params);
             return $stmt;
         }
 

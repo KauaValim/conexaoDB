@@ -58,6 +58,9 @@
             <a class="linkGerencia" href="portal.php"><i class="fa-solid fa-arrow-left"></i> Retornar ao portal</a>
             <a class="linkGerencia" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
         </div>
+        <div class="filtro">
+            <?php require './filtroUsuarios.php' ?>
+        </div>
         <table>
             <tr>
                 <th>ID</th>
