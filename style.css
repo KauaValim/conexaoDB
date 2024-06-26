@@ -67,8 +67,8 @@ body .container {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(223, 223, 223, 0.35);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(223, 223, 223, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -78,8 +78,8 @@ body .container {
 }
 
 body .mensagem {
-    background: rgba(255, 0, 0, 0.35);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(255, 0, 0, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -92,8 +92,8 @@ body .mensagem {
 
 
 body .mensagemInfo {
-    background: rgba(255, 208, 0, 0.35);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(255, 208, 0, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -161,8 +161,8 @@ body .containerGerencia {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(223, 223, 223, 0.35);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(223, 223, 223, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -274,8 +274,8 @@ body .containerPortal {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(223, 223, 223, 0.35);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(223, 223, 223, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -389,8 +389,8 @@ body .mainIndex .header {
     display: flex;
     justify-content: space-between;
     align-content: center;
-    background: rgba(223, 223, 223, 0.35);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(223, 223, 223, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -412,8 +412,8 @@ body .containerIndex  {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(223, 223, 223, 0.35);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    background: rgba(223, 223, 223, 1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
