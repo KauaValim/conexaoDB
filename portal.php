@@ -69,7 +69,14 @@
                 <?php echo saudacao() . ", " . $nome_usuario; ?>!
             </h1>
             <div class="menu">
-                <a class="linkPortal" href="gerencia.php"><i class="fa-solid fa-user-plus"></i> Gerenciar Usuários</a>
+                <?php 
+                    if ($_SESSION["administration_tag"] === 1) {
+                        echo "<a class='linkPortal' href='gerencia.php'><i class='fa-solid fa-user-plus'></i> Gerenciar Usuários</a>";
+                        echo "<a class='linkPortal' href='gerenciarPerfil.php'><i class='fa-solid fa-user-plus'></i> Gerenciar Perfil</a>";
+                    } else {
+                        echo "<a class='linkPortal' href='gerenciarPerfil.php'><i class='fa-solid fa-user-plus'></i> Gerenciar Perfil</a>";
+                    };
+                ?>
                 <a class="linkPortal" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
             </div>
         </div>

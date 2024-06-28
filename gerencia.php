@@ -15,8 +15,8 @@
     include_once './config/config.php';
     include_once './classes/Usuario.php';
 
-    // Verificar se o usuário está logado
-    if (!isset($_SESSION['usuario_id'])) {
+    // Verificar se o usuário está logado e é administrador
+    if (!isset($_SESSION['usuario_id']) || $_SESSION["administration_tag"] === 0) {
         header('Location: login.php');
         exit();
     }
