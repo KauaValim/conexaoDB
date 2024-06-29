@@ -65,11 +65,11 @@ $admin = isset($_POST['adm']) ? $_POST['adm'] : '';
                 <input class="box" type="text" name="fone" maxlength="15" placeholder="Fone" required />
                 <input class="box" type="email" name="email" maxlength="255" placeholder="E-mail" required />
                 <input class="box" type="password" name="senha" maxlength="255" placeholder="Senha" required />
-                <input class="box" type="password" name="confSenha" maxlength="255" placeholder="Confirmação de senha"
-                    required />
-                <p>Imagem de perfil</p>
-                <input type="file" name="img" accept=".png, .jpeg">
-
+                <input class="box" type="password" name="confSenha" maxlength="255" placeholder="Confirmação de senha" required />
+                    <div class='seletor'>
+                        <label for="img">Imagem: </label>
+                        <input type="file" name="img" accept=".png, .jpeg">
+                    </div>
                 <button class="btn" type="submit" value="Cadastrar"><i class="fa-regular fa-pen-to-square"></i>  Cadastrar</button>
             </form>
         </div>

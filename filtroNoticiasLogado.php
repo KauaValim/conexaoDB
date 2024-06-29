@@ -12,7 +12,7 @@ $lista_noticias = $noticias->lerPorId($_SESSION['usuario_id'], $search, $order_b
 
 
 <form method="POST">
-<input type="text" name="search" placeholder="Pesquisar
+<input class="inp" type="text" name="search" placeholder="Pesquisar
 por titulo ou conteúdo" value="<?php echo htmlspecialchars($search); ?>">
 <label>
 <input type="radio" name="order_by" value="" <?php if
@@ -22,5 +22,5 @@ por titulo ou conteúdo" value="<?php echo htmlspecialchars($search); ?>">
 <input type="radio" name="order_by" value="titulo" <?php
 if ($order_by == 'titulo') echo 'checked'; ?>> Ordem Alfabética
 </label>
-<button type="submit">Pesquisar</button>
+<button class="btn" type="submit">Pesquisar</button>
 </form>

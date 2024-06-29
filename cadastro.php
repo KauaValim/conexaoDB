@@ -54,8 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input class="box" type="password" name="senha" maxlength="255" placeholder="Senha" required />
                 <input class="box" type="password" name="confSenha" maxlength="255" placeholder="Confirmação de senha"
                     required />
-                <p>Imagem de perfil</p>
-                <input type="file" name="img" accept=".png, .jpeg">
+                    <div class='seletor'>
+                        <label for="img">Imagem: </label>
+                        <input type="file" name="img" accept=".png, .jpeg">
+                    </div>
                 <button class="btn" type="submit" value="Cadastrar"><i class="fa-regular fa-pen-to-square"></i>  Cadastrar</button>
             </form>
         </div>

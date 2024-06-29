@@ -41,69 +41,27 @@ body main .container p {
 }
 
 @-webkit-keyframes AnimationName {
-    0% {
-        background-position: 50% 50%
-    }
-
-    0% {
-        backdrop-filter: hue-rotate(410deg);
-    }
-
-    50% {
-        backdrop-filter: hue-rotate(200deg);
-    }
-
-    100% {
-        background-position: 27, 45% 50%
-    }
-
-    100% {
-        backdrop-filter: hue-rotate(410deg);
-    }
+    0% {background-position: 50% 50%}
+    0% {backdrop-filter: hue-rotate(410deg);}
+    50% {backdrop-filter: hue-rotate(200deg);}
+    100% {background-position: 27, 45% 50%}
+    100% {backdrop-filter: hue-rotate(410deg);}
 }
 
 @-moz-keyframes AnimationName {
-    0% {
-        background-position: 50% 50%
-    }
-
-    0% {
-        backdrop-filter: hue-rotate(410deg);
-    }
-
-    50% {
-        backdrop-filter: hue-rotate(200deg);
-    }
-
-    100% {
-        background-position: 27, 45% 50%
-    }
-
-    100% {
-        backdrop-filter: hue-rotate(410deg);
-    }
+    0% {background-position: 50% 50%}
+    0% {backdrop-filter: hue-rotate(410deg);}
+    50% {backdrop-filter: hue-rotate(200deg);}
+    100% {background-position: 27, 45% 50%}
+    100% {backdrop-filter: hue-rotate(410deg);}
 }
 
 @keyframes AnimationName {
-    0% {
-        background-position: 50% 50%
-    }
-
-    0% {
-        backdrop-filter: hue-rotate(410deg);
-    }
-
-    50% {
-        backdrop-filter: hue-rotate(200deg);
-    }
-
-    100% {
-        background-position: 27, 45% 50%
-    }
-
-    100% {
-        backdrop-filter: hue-rotate(410deg);
-    }
+    0% {background-position: 50% 50%}
+    0% {backdrop-filter: hue-rotate(410deg);}
+    50% {backdrop-filter: hue-rotate(200deg);}
+    100% {background-position: 27, 45% 50%}
+    100% {backdrop-filter: hue-rotate(410deg);}
 }
 
 body .container {
@@ -112,7 +70,7 @@ body .container {
     justify-content: center;
     align-items: center;
     background: rgba(223, 223, 223, 1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
+    box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -123,7 +81,7 @@ body .container {
 
 body .mensagem {
     background: rgba(255, 0, 0, 1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
+    box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -137,7 +95,7 @@ body .mensagem {
 
 body .mensagemInfo {
     background: rgba(255, 208, 0, 1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
+    box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -153,7 +111,8 @@ body .container form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px
+    gap: 10px;
+    width: 90%;
 }
 
 body .container form .box {
@@ -163,6 +122,7 @@ body .container form .box {
     padding: 2px 5px;
     vertical-align: middle;
     font-family: 'DM Sans', sans-serif;
+    width: 100%;
 }
 
 body .container form .btn {
@@ -206,7 +166,7 @@ body .containerGerencia {
     justify-content: center;
     align-items: center;
     background: rgba(223, 223, 223, 1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
+    box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -248,6 +208,7 @@ body .containerGerencia table tr .actions a {
     color: #08f;
     text-decoration: none;
     font-weight: 800;
+    transition: 0.5s ease-in-out;
 }
 
 .linkGerencia:visited {
@@ -257,7 +218,6 @@ body .containerGerencia table tr .actions a {
 }
 
 .linkGerencia:hover {
-    transition: 0.5s ease-in-out;
     border-radius: 50px;
     background-color: #aaa;
     color: #00f;
@@ -328,7 +288,7 @@ body .containerPortal {
     justify-content: center;
     text-align: center;
     background: rgba(223, 223, 223, 1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
+    box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -374,6 +334,7 @@ body .containerPortal table tr .actions a {
     color: #08f;
     text-decoration: none;
     font-weight: 800;
+    transition: 0.5s ease-in-out;
 }
 
 .linkPortal:visited {
@@ -383,7 +344,6 @@ body .containerPortal table tr .actions a {
 }
 
 .linkPortal:hover {
-    transition: 0.5s ease-in-out;
     border-radius: 50px;
     background-color: #aaa;
     color: #00f;
@@ -404,6 +364,10 @@ body .mainPortal .containerPortal .editor {
     gap: 10px;
     font-family: 'DM Sans', sans-serif;
     width: 100%;
+}
+
+body .mainPortal .containerPortal .seletor {
+    text-align: start;
 }
 
 body .mainPortal .containerPortal .box {
@@ -454,7 +418,7 @@ body .mainIndex .header {
     justify-content: space-between;
     align-content: center;
     background: rgba(223, 223, 223, 1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
+    box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -478,7 +442,7 @@ body .containerIndex {
     justify-content: center;
     align-items: center;
     background: rgba(223, 223, 223, 1);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 1);
+    box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
@@ -497,6 +461,7 @@ body .containerIndex {
 
 body .containerIndex img {
     width: auto;
+    max-width: 100%;
     height: 10rem;
 }
 
@@ -519,4 +484,61 @@ body .containerIndex .noticiaHeader {
     display: flex;
     justify-content: space-between;
     width: 95%;
+}
+
+/* Tela Perfil */
+
+body .containerIndex #profileImg {
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    object-position: 50% 50%;
+    object-fit: cover;
+    transition: 0.5s ease-in-out;
+    transition-delay: 0.1s;
+}
+
+body .containerIndex #profileImg:hover {
+    border-radius: 25px;
+    height: 20rem;
+}
+
+/* Estilo Filtro Noticias */
+
+body main .filtro form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: rgba(223, 223, 223, 1);
+    box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    border-radius: 10px;
+    padding: 1vh 2vw;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body main .filtro form .inp {
+    width: 200px;
+    border-radius: 5px;
+    border: 0px solid #000;
+    padding: 4px;
+}
+
+body main .filtro form .btn {
+    border-radius: 5px;
+    border: 1px solid #888;
+    padding: 4px;
+    transition: 0.2s ease-in-out;
+    font-weight: 700;
+}
+
+body main .filtro form .btn:hover {
+    background-color: #aaa;
+    border-radius: 50px;
+    border: 1px solid #888;
+    padding: 4px;
+    font-weight: 700;
 }
