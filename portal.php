@@ -59,7 +59,7 @@
         return true;
     }
 
-    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["img"])) {
         if (testArchive($_FILES["img"])) {
             if (isset($_POST["titulo"]) && isset($_POST["artigo"])) {
                 $noticia = new Noticias($db);
@@ -111,8 +111,10 @@
             <h1>Postar nova notícia</h1>
             <form method="POST" class="editor" enctype="multipart/form-data">
                 <input class="box" type="text" name="titulo" placeholder="Título" required />
-                <label for="img">Imagem</label>
-                <input type="file" name="img" accept=".png, .jpeg">
+                <div class='seletor'>
+                    <label for="img">Imagem: </label>
+                    <input type="file" name="img" accept=".png, .jpeg">
+                </div>
                 <textarea class="box" id="summernote" name="artigo" rows="5" placeholder="Notícia" required></textarea>
                 <input class="btn" type="submit" value="Postar">
             </form>
