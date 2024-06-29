@@ -7,7 +7,9 @@ CREATE TABLE usuarios(id INT AUTO_INCREMENT PRIMARY KEY,
     sexo VARCHAR(1) NOT NULL, 
     fone VARCHAR(15) NOT NULL, 
     email VARCHAR(255) NOT NULL UNIQUE, 
-    senha VARCHAR(255) NOT NULL);
+    senha VARCHAR(255) NOT NULL,
+    adm INT NOT NULL,
+    foto VARCHAR(255));
 
 ALTER TABLE usuarios ADD COLUMN codigo_verificacao VARCHAR(10) DEFAULT NULL;
 
@@ -17,5 +19,9 @@ CREATE TABLE noticias (
     data DATE,
     titulo VARCHAR(255) NOT NULL,
     noticia TEXT NOT NULL,
+    foto VARCHAR(255),
     FOREIGN KEY (idusu) REFERENCES usuarios(id)
 );
+
+insert into usuarios(nome, sexo, fone, email, senha, adm, foto)
+values("administrador","M","(00)0.0000-0000","adm@adm.com","$2y$10$F31MmivqPRxaXy6KwTPCPuPvCczlgocd5JLU6OBTUOjupDvTv3P9G",1,"");

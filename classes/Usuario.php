@@ -8,12 +8,22 @@
             $this->conn=$db;
         }
 
-        public function registrar($nome, $sexo, $fone, $email, $senha) {
-            $query = "INSERT INTO ".$this->table_name." (nome, sexo, fone, email, senha) VALUES (?, ?, ?, ?, ?)";
+        public function registrar($nome, $sexo, $fone, $email, $senha, $adm, $foto) {
+            $query = "INSERT INTO ".$this->table_name." (nome, sexo, fone, email, senha, adm, foto) VALUES (?, ?, ?, ?, ?, ?, ?)";
             $stmt = $this->conn->prepare($query);
             $hashed_password = password_hash($senha, PASSWORD_BCRYPT);
            
-            $stmt->execute([$nome, $sexo, $fone, $email, $hashed_password]);
+            // Processar a foto, se fornecida
+            $foto_path = null;
+            if ($foto && $foto['size'] > 0) {
+                $target_dir = "static/uploads/profileImages/";
+                date_default_timezone_set('America/Sao_Paulo');
+                $target_file = $target_dir . rand(0,100000).date("_d-m-Y_H-i-s").".".basename($foto["type"]);
+                move_uploaded_file($foto["tmp_name"], $target_file);
+                $foto_path = $target_file;
+            }
+
+            $stmt->execute([$nome, $sexo, $fone, $email, $hashed_password, $adm, $foto_path]);
             return $stmt;
         }
 
@@ -28,10 +38,10 @@
             return false;
         }
 
-        public function atualizar($id, $nome, $sexo, $fone, $email) {
-            $query = "UPDATE ".$this->table_name." SET nome=?,sexo=?,fone=?,email=? WHERE id=?";
+        public function atualizar($id, $nome, $sexo, $fone, $email, $adm) {
+            $query = "UPDATE ".$this->table_name." SET nome=?,sexo=?,fone=?,email=?,adm=? WHERE id=?";
             $stmt = $this->conn->prepare($query);
-            $stmt->execute([$nome, $sexo, $fone, $email, $id]);
+            $stmt->execute([$nome, $sexo, $fone, $email, $adm, $id]);
             return $stmt;
         }
 

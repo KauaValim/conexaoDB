@@ -10,7 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $fone = $_POST["fone"];
             $email = $_POST["email"];
             $senha = $_POST["senha"];
-            $usuario->registrar($nome, $sexo, $fone, $email, $senha);
+            $adm = 0;
+            $foto = $_FILES['img'];
+            
+            $usuario->registrar($nome, $sexo, $fone, $email, $senha, $adm, $foto);
             header("location:login.php");
             exit();
         } catch (PDOException $exception) {
@@ -37,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <main>
         <div class="container">
             <h1>Cadastro</h1>
-            <form method="POST">
+            <form method="POST" enctype="multipart/form-data">
                 <input class="box" type="text" name="nome" maxlength="80" placeholder="Nome" required />
                 <div class='seletor'>
                     <label for="sexo">Gênero: </label>
@@ -51,6 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <input class="box" type="password" name="senha" maxlength="255" placeholder="Senha" required />
                 <input class="box" type="password" name="confSenha" maxlength="255" placeholder="Confirmação de senha"
                     required />
+                <p>Imagem de perfil</p>
+                <input type="file" name="img" accept=".png, .jpeg">
                 <button class="btn" type="submit" value="Cadastrar"><i class="fa-regular fa-pen-to-square"></i>  Cadastrar</button>
             </form>
         </div>

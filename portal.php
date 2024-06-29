@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<body class="css-selector">
-    <?php
+<?php
     session_start();
     include_once './config/config.php';
     include_once './classes/Usuario.php';
     include_once './classes/Noticias.php';
+
     $noticias = new Noticias($db);
 
     // Processar exclusão de noticias
@@ -60,25 +49,70 @@
             return "Boa noite";
         }
     }
-    ?>
+
+    function testArchive($archive)
+    {
+        if (!str_ends_with($archive['name'], '.png') && !str_ends_with($archive['name'], '.jpeg')) {
+            echo "Extensão do arquivo de imagem não permitido, precisa ser '.png' ou '.jpeg'.";
+            return false;
+        }
+        return true;
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        if (testArchive($_FILES["img"])) {
+            if (isset($_POST["titulo"]) && isset($_POST["artigo"])) {
+                $noticia = new Noticias($db);
+                date_default_timezone_set('America/Sao_Paulo');
+                $data = date("Y-m-d");
+                $titulo = $_POST["titulo"];
+                $artigo = $_POST["artigo"];
+                $foto = $_FILES["img"];
+                $noticia->registrar($id, $data, $titulo, $artigo, $foto);
+                header("location:portal.php");
+                exit();
+            }
+        }
+    }
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="css-selector">
     <main class='mainPortal'>
         <div class="containerPortal">
             <h1>
                 <?php echo saudacao() . ", " . $nome_usuario; ?>!
             </h1>
             <div class="menu">
-                <a class="linkPortal" href="gerencia.php"><i class="fa-solid fa-user-plus"></i> Gerenciar Usuários</a>
+                <?php 
+                    if ($_SESSION["administration_tag"] == 1) {
+                        echo "<a class='linkPortal' href='gerencia.php'><i class='fa-solid fa-user-plus'></i> Gerenciar Usuários</a>";
+                        echo "<a class='linkPortal' href='gerenciarPerfil.php'><i class='fa-solid fa-user-plus'></i> Gerenciar Perfil</a>";
+                    } else {
+                        echo "<a class='linkPortal' href='gerenciarPerfil.php'><i class='fa-solid fa-user-plus'></i> Gerenciar Perfil</a>";
+                    };
+                ?>
                 <a class="linkPortal" href="logout.php"><i class="fa-solid fa-power-off"></i> Logout</a>
             </div>
         </div>
         <div class="containerPortal">
             <h1>Postar nova notícia</h1>
-            <form method="POST" class="editor">
+            <form method="POST" class="editor" enctype="multipart/form-data">
                 <input class="box" type="text" name="titulo" placeholder="Título" required />
-                <input type="hidden" name="data">
-                <?php
-                $_POST["data"] = date("Y-m-d")
-                ?>
+                <label for="img">Imagem</label>
+                <input type="file" name="img" accept=".png, .jpeg">
                 <textarea class="box" id="summernote" name="artigo" rows="5" placeholder="Notícia" required></textarea>
                 <input class="btn" type="submit" value="Postar">
             </form>
@@ -86,37 +120,25 @@
         <div class="filtro">
             <?php require './filtroNoticiasLogado.php' ?>
         </div>
-        <?php while ($row = $lista_noticias->fetch(PDO::FETCH_ASSOC)) : ?>
+        <?php while ($row = $lista_noticias->fetch(PDO::FETCH_ASSOC)): ?>
             <div class="containerIndex">
                 <div class="noticiaHeader">
                     <p><?php echo $row["titulo"]; ?></p>
                     <p><?php echo formatData($row["data"]); ?></p>
                 </div>
+                <img id="newsImg" src="<?php echo "./".$row["foto"] ?>" alt="Img Notícia">
                 <p><?php echo $row["noticia"]; ?></p>
                 <br><br>
 
-                <a class="linkPortal" href="editarNoticia.php?id=<?php echo $row['idnot']; ?>"><i class="fa-regular fa-pen-to-square"></i> Editar</a>
-                <a class="linkPortal" href="deletarNoticia.php?id=<?php echo $row['idnot']; ?>"><i class="fa-solid fa-trash-can"></i> Excluir</a>
+                <a class="linkPortal" href="editarNoticia.php?id=<?php echo $row['idnot']; ?>"><i
+                        class="fa-regular fa-pen-to-square"></i> Editar</a>
+                <a class="linkPortal" href="deletarNoticia.php?id=<?php echo $row['idnot']; ?>"><i
+                        class="fa-solid fa-trash-can"></i> Excluir</a>
                 <br>
                 <br>
             </div>
         <?php endwhile; ?>
     </main>
-    <?php
-    include_once './config/config.php';
-    include_once './classes/Noticias.php';
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            if (isset($_POST["titulo"]) && isset($_POST["artigo"])) {
-                $noticia = new Noticias($db);
-                $data = $_POST["data"];
-                $titulo = $_POST["titulo"];
-                $artigo = $_POST["artigo"];
-                $noticia->registrar($id, $data, $titulo, $artigo);
-                header("location:portal.php");
-                exit();
-            }
-        }
-    ?>
 
 </body>
 

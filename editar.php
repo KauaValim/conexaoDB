@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sexo = $_POST["sexo"];
     $fone = $_POST["fone"];
     $email = $_POST["email"];
-    $usuario->atualizar($id, $nome, $sexo, $fone, $email);
+    
+    $usuario->atualizar($id, $nome, $sexo, $fone, $email, $adm);
     header("Location: gerencia.php");
     exit();
 }
@@ -40,7 +41,7 @@ if (isset($_GET['id'])) {
     <main>
         <div class="container">
             <h1>Editar Usuário</h1>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <input class="box" type="hidden" name="id" value="<?php echo $row['id']; ?>">
                 <input class="box" type="text" name="nome" placeholder="nome" value="<?php echo $row['nome']; ?>" required>
                 <div class='radio'>
@@ -50,6 +51,10 @@ if (isset($_GET['id'])) {
                     <label for="feminino_editar">
                         <input type="radio" id="feminino_editar" name="sexo" value="F" <?php echo ($row['sexo'] === 'F') ? 'checked' : ''; ?> required>Feminino
                     </label>
+                </div>
+                <div class='seletor'>
+                    <label for="sexo">Perfil de administrador? </label>
+                    <input type="checkbox" name="adm" <?php if ($row['adm'] == 1) echo "checked";?>/>
                 </div>
                 <input class="box" type="text" name="fone" placeholder="fone" value="<?php echo $row['fone']; ?>" required>
                 <input class="box" type="email" name="email" placeholder="email" value="<?php echo $row['email']; ?>" required>

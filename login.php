@@ -9,6 +9,7 @@
             $senha = $_POST["senha"];
             if($dados_Usuario = $usuario->login($email, $senha)) {
                 $_SESSION["usuario_id"] = $dados_Usuario["id"];
+                $_SESSION["administration_tag"] = $dados_Usuario["adm"];
                 header("Location: portal.php");
                 exit();
         } else {
