@@ -38,10 +38,10 @@
             return false;
         }
 
-        public function atualizar($id, $nome, $sexo, $fone, $email, $adm, $foto) {
-            $query = "UPDATE ".$this->table_name." SET nome=?,sexo=?,fone=?,email=?,adm=?,foto=? WHERE id=?";
+        public function atualizar($id, $nome, $sexo, $fone, $email, $adm) {
+            $query = "UPDATE ".$this->table_name." SET nome=?,sexo=?,fone=?,email=?,adm=? WHERE id=?";
             $stmt = $this->conn->prepare($query);
-            $stmt->execute([$nome, $sexo, $fone, $email, $adm, $foto, $id]);
+            $stmt->execute([$nome, $sexo, $fone, $email, $adm, $id]);
             return $stmt;
         }
 

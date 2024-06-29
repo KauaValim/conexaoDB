@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fone = $_POST["fone"];
     $email = $_POST["email"];
     
-    $usuario->atualizar($id, $nome, $sexo, $fone, $email, $adm, $foto);
+    $usuario->atualizar($id, $nome, $sexo, $fone, $email, $adm);
     header("Location: gerencia.php");
     exit();
 }
@@ -58,8 +58,6 @@ if (isset($_GET['id'])) {
                 </div>
                 <input class="box" type="text" name="fone" placeholder="fone" value="<?php echo $row['fone']; ?>" required>
                 <input class="box" type="email" name="email" placeholder="email" value="<?php echo $row['email']; ?>" required>
-                <p>Imagem de perfil</p>
-                <input type="file" name="img" accept=".png, .jpeg">
                 <button class="btn" type="submit" value="Atualizar"><i class="fa-regular fa-pen-to-square"></i>
                     Atualizar</button>
             </form>

@@ -39,6 +39,7 @@
                     <p><?php echo $row["titulo"]; ?></p>
                     <p><?php echo formatData($row["data"]); ?></p>
                 </div>
+                <img id="newsImg" src="<?php echo "./".$row["foto"] ?>" alt="Img Notícia">
                 <p><?php echo $row["noticia"]; ?></p>
             </div>
         <?php endwhile; ?>

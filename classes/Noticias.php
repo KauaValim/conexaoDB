@@ -11,11 +11,11 @@
         public function registrar($idusu, $data, $titulo, $noticia, $foto) {
             $query = "INSERT INTO ".$this->table_name." (idusu, data, titulo, noticia, foto) VALUES (?, ?, ?, ?, ?)";
             $stmt = $this->conn->prepare($query);
+            
             $foto_path = null;
-
             if ($foto && $foto['size'] > 0) {
-                $target_dir = "/static/uploads/imgNoticias";
-                $target_file = $target_dir . basename($foto["name"]);
+                $target_dir = "static/uploads/noticesImages/";
+                $target_file = $target_dir . rand(0,100000).date("_d-m-Y_H-i-s").".".basename($foto["type"]);
                 move_uploaded_file($foto["tmp_name"], $target_file);
                 $foto_path = $target_file;
             }
