@@ -15,7 +15,11 @@
     }
 
     // Obter noticias
-    $lista_noticias = $noticias->lerPorId($_SESSION['usuario_id']);
+    if ($_SESSION["administration_tag"] == 1) {
+        $lista_noticias = $noticias->ler();
+    } else {
+        $lista_noticias = $noticias->lerPorId($_SESSION['usuario_id']);
+    }
 
     function formatData($data)
     {
@@ -120,7 +124,14 @@
             </form>
         </div>
         <div class="filtro">
-            <?php require './filtroNoticiasLogado.php' ?>
+            <?php 
+                if ($_SESSION["administration_tag"] == 1) {
+                    require './filtroNoticias.php';
+                } else {
+                    require './filtroNoticiasLogado.php';
+                }
+            ?>
+            
         </div>
         <?php while ($row = $lista_noticias->fetch(PDO::FETCH_ASSOC)): ?>
             <div class="containerIndex">
