@@ -31,9 +31,9 @@ body main .container p {
     background-image: url('./static/mmmotifx.png');
     background-size: 200% 200%;
 
-    -webkit-animation: AnimationName 50s linear infinite;
-    -moz-animation: AnimationName 50s linear infinite;
-    animation: AnimationName 50s linear infinite;
+    -webkit-animation: AnimationName 10s linear infinite alternate;
+    -moz-animation: AnimationName 10s linear infinite alternate;
+    animation: AnimationName 10s linear infinite alternate;
 }
 
 .css-selector:not(:hover) {
@@ -184,7 +184,7 @@ body .containerGerencia .menu {
 
 body .containerGerencia table {
     border-collapse: collapse;
-    margin: 20px 0 0 0;
+    margin: 0;
 }
 
 body .containerGerencia table th,
@@ -295,8 +295,8 @@ body .containerPortal {
     margin: 20px;
     padding: 2vw;
     font-family: 'DM Sans', sans-serif;
-    min-width: 30rem;
-    max-width: 30rem;
+    min-width: 35rem;
+    max-width: 35rem;
 }
 
 body .containerPortal .menu {
@@ -402,6 +402,36 @@ body .mainPortal .containerPortal .btn:hover {
     background-color: #ddd;
 }
 
+body .mainPortal .containerPortal .btnPost {
+    width: 90px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 0px solid #000;
+    background-color: #fff;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
+    font-weight: 800;
+}
+
+body .mainPortal .containerPortal .btnPost:hover {
+    background-color: #aaa;
+    filter: drop-shadow(0 0 0.5rem #ddd);
+    border-radius: 50px;
+    font-weight: 800;
+    color: #fff;
+}
+
+body .mainPortal .containerPortal .btnPost:active {
+    transition: 0s ease-in-out;
+    background-color: #5558;
+    filter: drop-shadow(0 0 0.5rem #555);
+    border-radius: 50px;
+    font-weight: 800;
+    color: #fff;
+}
+
 
 /* Tela Index */
 
@@ -425,7 +455,8 @@ body .mainIndex .header {
     margin: 20px;
     padding: 1vh 2vw;
     font-family: 'DM Sans', sans-serif;
-    width: 100%;
+    min-width: 35rem;
+    max-width: 35rem;
 }
 
 body .mainIndex .header h1 {
@@ -449,8 +480,8 @@ body .containerIndex {
     margin: 20px;
     padding: 1vh 2vw;
     font-family: 'DM Sans', sans-serif;
-    min-width: 30rem;
-    max-width: 30rem;
+    min-width: 35rem;
+    max-width: 35rem;
 }
 
 body .containerIndex {
@@ -505,11 +536,13 @@ body .containerIndex #profileImg:hover {
 
 /* Estilo Filtro Noticias */
 
-body main .filtro form {
+body main .filtro {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    min-width: 35rem;
+    max-width: 35rem;
     gap: 5px;
     background: rgba(223, 223, 223, 1);
     box-shadow: 0 8px 32px 0 rgb(114, 114, 114);
@@ -517,7 +550,15 @@ body main .filtro form {
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
     padding: 1vh 2vw;
+    margin: 20px;
+}
+
+body main .filtro form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     font-family: 'DM Sans', sans-serif;
+    width: 100%;
 }
 
 body main .filtro form .inp {
@@ -540,5 +581,57 @@ body main .filtro form .btn:hover {
     border-radius: 50px;
     border: 1px solid #888;
     padding: 4px;
+    font-weight: 700;
+}
+
+/* Estilo Filtro Usuarios */
+
+body main .filtroUsuarios {
+    min-width: 100%;
+}
+
+body main .filtroUsuarios form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    border-radius: 10px;
+    padding: 2vh 2vw;
+    margin: 1px 0;
+    font-family: 'DM Sans', sans-serif;
+}
+
+body main .filtroUsuarios form .inp {
+    width: 200px;
+    border-radius: 5px;
+    border: 0px solid #000;
+    padding: 4px;
+}
+
+body main .filtroUsuarios form .btn {
+    border-radius: 5px;
+    border: 1px solid #888;
+    transition: 0.2s ease-in-out;
+    font-weight: 700;
+}
+
+body main .filtroUsuarios form .btn:hover {
+    background-color: #aaa;
+    border-radius: 50px;
+    font-weight: 700;
+}
+
+body main .filtroUsuarios form .btn {
+    border-radius: 5px;
+    border: 1px solid #888;
+    transition: 0.2s ease-in-out;
+    font-weight: 700;
+}
+
+body main .filtroUsuarios form .btn:hover {
+    background-color: #aaa;
+    filter: drop-shadow(0 0 0.2rem #888);
+    border-radius: 50px;
     font-weight: 700;
 }
