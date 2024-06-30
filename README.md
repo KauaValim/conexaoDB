@@ -1,9 +1,9 @@
 # Clínica Nutrição Project
-![GitHub repo size](https://img.shields.io/github/repo-size/KauaValim/conexaoDB?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/KauaValim/conexaoDB?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/KauaValim/conexaoDB?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/KauaValim/conexaoDB?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/KauaValim/conexaoDB?style=for-the-badge)
+![GitHub repo size](https://img.shields.io/github/repo-size/KauaValim/conexaodb?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/KauaValim/conexaodb?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/KauaValim/conexaodb?style=for-the-badge)
+![Bitbucket open issues](https://img.shields.io/bitbucket/issues/KauaValim/conexaodb?style=for-the-badge)
+![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/KauaValim/conexaodb?style=for-the-badge)
 
 <img src="HomePage.png" alt="Website Image">
 
