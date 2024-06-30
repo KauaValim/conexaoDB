@@ -112,7 +112,7 @@
             </div>
         </div>
         <div class="containerPortal">
-            <h1>Postar nova notícia</h1>
+            <h1>Criar nova notícia</h1>
             <form method="POST" class="editor" enctype="multipart/form-data">
                 <input class="box" type="text" name="titulo" placeholder="Título" required />
                 <div class='seletor'>
@@ -120,7 +120,9 @@
                     <input type="file" name="img" accept=".png, .jpeg">
                 </div>
                 <textarea class="box" id="summernote" name="artigo" rows="5" placeholder="Notícia" required></textarea>
-                <input class="btn" type="submit" value="Postar">
+                <div>
+                    <input class="btnPost" type="submit" value="Criar">
+                </div>
             </form>
         </div>
         <div class="filtro">

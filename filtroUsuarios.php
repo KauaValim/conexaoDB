@@ -11,7 +11,7 @@
 ?>
 
 <form method="POST">
-    <input type="text" name="search" placeholder="Pesquisar por nome ou email" value="<?php echo htmlspecialchars($search); ?>">
+    <input class="inp" type="text" name="search" placeholder="Pesquisar por nome ou email" value="<?php echo htmlspecialchars($search); ?>">
     <label>
         <input type="radio" name="order_by" value="" <?php if ($order_by == '') echo 'checked'; ?>> Normal
     </label>
@@ -21,5 +21,5 @@
     <label>
         <input type="radio" name="order_by" value="sexo" <?php if ($order_by == 'sexo') echo 'checked'; ?>> Sexo
     </label>
-    <button type="submit">Pesquisar</button>
+    <button class="btn" type="submit">Pesquisar</button>
 </form>
