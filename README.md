@@ -32,5 +32,5 @@ To running this webpage, follow these steps:
 - And in your browser, type on navigation bar the path:
 
 ```
-localhost/{name of the folder you created inside htdocs}/{name.php of the php archive that contains the webpage}
+localhost/{name of the folder you created inside htdocs}
 ```
