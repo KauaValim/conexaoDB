@@ -1,4 +1,4 @@
-# Clínica Nutrição Project
+# News Portal Project
 ![GitHub repo size](https://img.shields.io/github/repo-size/KauaValim/conexaodb?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/KauaValim/conexaodb?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/KauaValim/conexaodb?style=for-the-badge)
