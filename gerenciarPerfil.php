@@ -29,6 +29,10 @@ $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
     <main class='mainPortal'>
         <div class="containerPortal">
             <h1 style="margin: 0;">Dados do perfil</h1>
+            <br>
+            <div class="menu">
+                <a class='linkPortal' href='portal.php'><i class="fa-solid fa-arrow-left"></i> Retornar</a>
+            </div>
         </div>
         <div class="containerIndex">
             <br>
@@ -38,6 +42,9 @@ $dados_usuario = $usuario->lerPorId($_SESSION['usuario_id']);
             <p>Gênero: <?php if ($dados_usuario['sexo'] == "M") {echo 'Masculino';} else {echo 'Feminino';}; ?></p>
             <p>Telefone: <?php echo $dados_usuario['fone']; ?></p>
             <p>Email: <?php echo $dados_usuario['email']; ?></p>
+            <a class="linkGerencia" href="editar.php?id=<?php echo $dados_usuario['id']; ?>"><i class="fa-regular fa-pen-to-square"></i> Editar</a>
+            <a class="linkGerencia" href="excluirUsuario.php?id=<?php echo $dados_usuario['id']; ?>"><i class="fa-regular fa-trash-can"></i> Deletar</a>
+            <br>
             <br>
         </div>
     </main>

@@ -52,10 +52,7 @@ if (isset($_GET['id'])) {
                         <input type="radio" id="feminino_editar" name="sexo" value="F" <?php echo ($row['sexo'] === 'F') ? 'checked' : ''; ?> required>Feminino
                     </label>
                 </div>
-                <div class='seletor'>
-                    <label for="sexo">Perfil de administrador? </label>
-                    <input type="checkbox" name="adm" <?php if ($row['adm'] == 1) echo "checked";?>/>
-                </div>
+                <?php if($row['adm'] == 1) echo "<div class='seletor'><label for='sexo'>Perfil de administrador? </label><input type='checkbox' name='adm' checked /></div>";?>
                 <input class="box" type="text" name="fone" placeholder="fone" value="<?php echo $row['fone']; ?>" required>
                 <input class="box" type="email" name="email" placeholder="email" value="<?php echo $row['email']; ?>" required>
                 <button class="btn" type="submit" value="Atualizar"><i class="fa-regular fa-pen-to-square"></i>

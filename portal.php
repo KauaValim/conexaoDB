@@ -117,7 +117,7 @@
                 <input class="box" type="text" name="titulo" placeholder="Título" required />
                 <div class='seletor'>
                     <label for="img">Imagem: </label>
-                    <input type="file" name="img" accept=".png, .jpeg">
+                    <input type="file" name="img" accept=".png, .jpeg" required>
                 </div>
                 <textarea class="box" id="summernote" name="artigo" rows="5" placeholder="Notícia" required></textarea>
                 <div>
